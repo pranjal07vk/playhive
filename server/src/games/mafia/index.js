@@ -188,9 +188,10 @@ function summarize(state, ctx) {
   const highlights = [`The Mafia: ${mafiaNames.join(', ')}`];
   const doctor = holderOf(state, 'doctor');
   const detective = holderOf(state, 'detective');
-  if (doctor) highlights.push(`Doctor ${nameOf(ctx, doctor)} saved a life ${state.saves} time${state.saves === 1 ? '' : 's'}.`);
+  if (doctor) highlights.push(state.saves ? `Doctor ${nameOf(ctx, doctor)} saved a life ${state.saves} time${state.saves === 1 ? '' : 's'}.` : `Doctor ${nameOf(ctx, doctor)} never got to save anyone.`);
   if (detective) {
-    const caught = state.investigations.filter((i) => i.result === 'mafia').length;
+    // Investigating the same suspect twice still only finds one mafia member.
+    const caught = new Set(state.investigations.filter((i) => i.result === 'mafia').map((i) => i.targetId)).size;
     highlights.push(`Detective ${nameOf(ctx, detective)} made ${state.investigations.length} investigation${state.investigations.length === 1 ? '' : 's'} and found ${caught} mafia.`);
   }
   return {

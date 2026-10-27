@@ -1,0 +1,47 @@
+.tel-label { font-family: var(--font-numeric); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+
+.tel-track { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.tel-track-dot {
+  width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%;
+  background: var(--surface-2); border: 2px solid var(--line-strong); font-size: 1rem; opacity: 0.6;
+}
+.tel-track-dot.is-done { background: var(--parrot); border-color: var(--bg-deep); opacity: 1; }
+.tel-track-dot.is-now { background: var(--marigold); border: 3px solid var(--bg-deep); opacity: 1; transform: scale(1.12) rotate(-6deg); box-shadow: var(--shadow-sticker); }
+
+/* The phrase you were handed: a torn-off chit */
+.tel-prompt-note {
+  align-self: center; width: min(100%, 520px); padding: 14px 20px;
+  background: var(--paper); color: var(--chai); text-align: center;
+  border: 3px solid var(--bg-deep); border-radius: 6px 22px 6px 22px;
+  box-shadow: var(--shadow-pop); transform: rotate(-1.5deg);
+}
+.tel-prompt-text { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 5vw, 2rem); line-height: 1.15; margin: 4px 0 0; overflow-wrap: anywhere; }
+
+.tel-strip { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; position: relative; }
+.tel-strip::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; border-left: 3px dashed var(--line-strong); z-index: 0; }
+.tel-entry { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; width: min(100%, 440px); }
+.tel-entry-right { align-self: flex-end; align-items: flex-end; }
+.tel-author { font-size: 0.82rem; font-weight: 700; color: var(--text-muted); background: var(--bg); padding: 0 6px; border-radius: var(--radius-pill); }
+.tel-bubble {
+  margin: 0; padding: 12px 16px; max-width: 100%;
+  background: var(--peacock); color: var(--chai); font-weight: 700; font-size: 1.1rem; overflow-wrap: anywhere;
+  border: 3px solid var(--bg-deep); border-radius: 20px 20px 20px 4px; box-shadow: var(--shadow-sticker);
+}
+.tel-entry-right .tel-bubble { background: var(--marigold); border-radius: 20px 20px 4px 20px; }
+.tel-entry:first-child .tel-bubble { background: var(--gulal); color: #fff; }
+.tel-missing { background: var(--surface-2) !important; color: var(--text-muted) !important; font-style: italic; }
+.tel-drawing { width: 100%; }
+.tel-entry:nth-child(4n + 2) .tel-drawing { transform: rotate(1.5deg); }
+.tel-entry:nth-child(4n) .tel-drawing { transform: rotate(-1.5deg); }
+
+.tel-strip-compact { gap: 10px; }
+.tel-strip-compact::before { display: none; }
+.tel-strip-compact .tel-entry { width: 100%; align-self: stretch; align-items: stretch; }
+.tel-strip-compact .tel-bubble { font-size: 0.95rem; padding: 8px 12px; }
+.tel-strip-compact .tel-drawing { max-width: 200px; transform: none !important; }
+.tel-strip-compact .tel-entry-right .tel-drawing { align-self: flex-end; }
+
+.tel-reveal-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 768px) { .tel-reveal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .tel-reveal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.tel-reveal-card { padding: 16px; min-width: 0; }

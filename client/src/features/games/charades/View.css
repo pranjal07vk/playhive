@@ -1,0 +1,56 @@
+/* Charades: a little theatre with velvet curtains. */
+.cha-stage {
+  position: relative; overflow: hidden; isolation: isolate;
+  min-height: 260px; padding: 56px 18px 32px;
+  border-radius: var(--radius-lg); border: 4px solid var(--bg-deep); box-shadow: var(--shadow-pop);
+  background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--marigold) 40%, var(--bg-deep)) 0%, var(--bg-deep) 70%);
+  display: grid; place-items: center; text-align: center;
+}
+.cha-curtain {
+  position: absolute; top: 0; bottom: 0; width: 52%; z-index: -1;
+  background: repeating-linear-gradient(90deg, var(--gulal) 0 22px, color-mix(in srgb, var(--gulal) 70%, var(--bg-deep)) 22px 34px);
+  transition: transform 0.8s var(--ease-out);
+}
+.cha-curtain-l { left: 0; border-right: 3px solid var(--bg-deep); }
+.cha-curtain-r { right: 0; border-left: 3px solid var(--bg-deep); }
+.cha-stage-open .cha-curtain-l { transform: translateX(-78%); }
+.cha-stage-open .cha-curtain-r { transform: translateX(78%); }
+.cha-valance {
+  position: absolute; top: 0; left: 0; right: 0; height: 34px;
+  background: radial-gradient(circle at 20px -4px, var(--marigold) 22px, transparent 23px) repeat-x;
+  background-size: 40px 34px; border-bottom: 3px solid var(--bg-deep);
+}
+.cha-stage-inner { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 34ch; padding: 16px; border-radius: var(--radius); background: color-mix(in srgb, var(--bg-deep) 82%, transparent); }
+.cha-big { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 9vw, 3.4rem); line-height: 1.02; color: var(--marigold); text-shadow: 4px 4px 0 var(--bg-deep); }
+.cha-sub { font-weight: 600; color: var(--cream); }
+
+.cha-word-card {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  padding: 34px 18px; border-radius: var(--radius-lg);
+  background: var(--marigold); color: var(--chai);
+  border: 4px solid var(--bg-deep); box-shadow: var(--shadow-pop);
+  transform: rotate(-1.2deg); text-align: center;
+}
+.cha-word-tag { font-family: var(--font-numeric); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; background: var(--chai); color: var(--marigold); padding: 4px 12px; border-radius: var(--radius-pill); }
+.cha-word { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 10vw, 4rem); line-height: 1.05; overflow-wrap: anywhere; animation: pop-in 0.35s var(--ease-bounce) both; }
+
+.cha-tally { font-weight: 700; font-size: 1.1rem; }
+.cha-actions { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 480px) { .cha-actions { grid-template-columns: 2fr 1fr; } }
+
+.cha-picker { display: flex; flex-direction: column; gap: 14px; align-items: center; background: var(--surface-2); }
+.cha-picker-title { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; }
+.cha-picker-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.cha-picker-chip {
+  display: inline-flex; align-items: center; gap: 8px; min-height: var(--tap);
+  padding: 6px 16px 6px 6px; border-radius: var(--radius-pill);
+  background: var(--cream); color: var(--chai); border: 3px solid var(--bg-deep); box-shadow: var(--shadow-sticker);
+  font-weight: 700; font-size: 1rem; cursor: pointer;
+}
+.cha-picker-chip:active { transform: translate(3px, 3px); box-shadow: none; }
+
+.cha-sofar summary { cursor: pointer; font-weight: 700; min-height: var(--tap); display: flex; align-items: center; }
+.cha-summary { display: flex; flex-direction: column; gap: 12px; }
+.cha-log { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.cha-log li { display: grid; grid-template-columns: 30px 1fr auto; gap: 10px; align-items: center; padding: 10px 12px; border-radius: var(--radius); background: var(--bg-deep); font-weight: 600; }
+.cha-log-word { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; overflow-wrap: anywhere; }

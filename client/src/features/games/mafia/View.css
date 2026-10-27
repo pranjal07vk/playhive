@@ -173,3 +173,4 @@
 .maf-reveal-card:nth-child(odd) { transform: rotate(-1.5deg); }
 .maf-reveal-card:nth-child(even) { transform: rotate(1.5deg); }
 .maf-reveal-status { font-size: 0.85rem; font-weight: 700; }
+.maf-day .countdown-num { color: var(--cream); }

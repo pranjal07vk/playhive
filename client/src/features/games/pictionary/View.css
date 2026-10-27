@@ -1,0 +1,71 @@
+.pic-word-label { font-family: var(--font-numeric); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+
+/* The drawer's secret word, taped to the top of the sketchbook */
+.pic-word {
+  align-self: center; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 10px 26px 12px; max-width: 100%;
+  background: var(--marigold); color: var(--chai);
+  border: 3px solid var(--bg-deep); border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-pop); transform: rotate(-2deg);
+}
+.pic-word-text { font-family: var(--font-display); font-size: clamp(1.8rem, 7vw, 2.8rem); line-height: 1.05; text-transform: uppercase; overflow-wrap: anywhere; text-align: center; }
+.pic-word-rule { color: var(--chai); opacity: 0.8; font-size: 0.85rem; }
+
+.pic-hint { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+.pic-hint-pattern { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; margin: 0; }
+.pic-hint-word { display: inline-flex; gap: 6px; }
+.pic-blank, .pic-letter {
+  display: inline-grid; place-items: end center; width: clamp(18px, 6vw, 30px); height: clamp(30px, 9vw, 42px);
+  font-size: clamp(1.4rem, 6vw, 2rem); font-weight: 800; line-height: 1;
+}
+.pic-blank { border-bottom: 4px solid var(--cream); }
+.pic-letter { border-bottom: 4px solid var(--marigold); color: var(--marigold); text-transform: uppercase; }
+.pic-hint-count { font-size: 0.85rem; }
+
+.pic-board { display: grid; gap: 18px; }
+.pic-canvas-col { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+@media (min-width: 900px) { .pic-board { grid-template-columns: minmax(0, 1fr) 240px; align-items: start; } }
+
+/* Guess box stays pinned near the canvas so the phone keyboard doesn't bury it */
+.pic-guess {
+  position: sticky; bottom: 8px; z-index: 2;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px;
+  padding: 10px; background: var(--surface); border: 3px solid var(--bg-deep);
+  border-radius: var(--radius); box-shadow: var(--shadow-sticker);
+}
+.pic-guess .input { min-height: 48px; }
+.pic-note { grid-column: 1 / -1; margin: 0; min-height: 1.2em; color: var(--marigold); font-weight: 700; }
+.pic-note:empty { display: none; }
+.pic-got-it {
+  padding: 14px; border-radius: var(--radius); background: var(--parrot); color: var(--chai);
+  border: 3px solid var(--bg-deep); font-weight: 800; text-align: center; box-shadow: var(--shadow-sticker);
+}
+
+.pic-feed ol { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; max-height: 280px; overflow-y: auto; }
+.pic-feed li { padding: 6px 10px; border-radius: var(--radius-sm); background: var(--surface-2); overflow-wrap: anywhere; }
+.pic-feed-correct { background: var(--parrot) !important; color: var(--chai); font-weight: 800; }
+
+.pic-cards { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .pic-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.pic-card {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  min-height: 110px; padding: 18px 14px; cursor: pointer;
+  background: var(--paper); color: var(--chai);
+  border: 3px solid var(--bg-deep); border-radius: var(--radius);
+  box-shadow: var(--shadow-pop); transition: transform 0.15s var(--ease-bounce);
+}
+.pic-card-0 { transform: rotate(-2deg); }
+.pic-card-1 { transform: rotate(1deg); }
+.pic-card-2 { transform: rotate(-1deg); }
+.pic-card:hover:not(:disabled) { transform: rotate(0) translateY(-4px); }
+.pic-card[aria-pressed='true'] { background: var(--marigold); }
+.pic-card:disabled:not([aria-pressed='true']) { opacity: 0.45; }
+.pic-card-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #5b4f68; }
+.pic-card-word { font-family: var(--font-display); font-weight: 800; font-size: 1.6rem; line-height: 1.1; text-transform: capitalize; }
+
+.pic-waitcard { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.pic-waitcard .muted { color: #5b4f68; }
+.pic-reveal-word { text-transform: uppercase; overflow-wrap: anywhere; }
+.pic-points { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.pic-points li { display: flex; justify-content: space-between; gap: 10px; }
+.pic-points strong { color: var(--parrot-text); }

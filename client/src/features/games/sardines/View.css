@@ -1,0 +1,58 @@
+/* Sardines: friends stacking up in a tin. */
+.sar-panel {
+  display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;
+  padding: 28px 18px; border-radius: var(--radius-lg);
+  background: var(--surface-2); border: 3px solid var(--bg-deep); box-shadow: var(--shadow-pop);
+}
+.sar-panel-hider { background: var(--marigold); color: var(--chai); }
+.sar-panel-hider .muted { color: var(--chai); }
+.sar-big { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.7rem, 7vw, 2.6rem); line-height: 1.05; }
+.sar-sub { font-weight: 600; max-width: 36ch; }
+.sar-note { text-align: center; font-weight: 700; padding: 10px 16px; border-radius: var(--radius-pill); background: var(--surface-2); }
+
+.sar-found-btn {
+  width: 100%; min-height: 110px; cursor: pointer;
+  border-radius: var(--radius-lg); border: 4px solid var(--bg-deep); box-shadow: var(--shadow-pop);
+  background: var(--peacock); color: var(--chai);
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 7vw, 2.3rem);
+  transition: transform 0.12s var(--ease-bounce), box-shadow 0.12s;
+}
+.sar-found-btn:active { transform: translate(4px, 4px); box-shadow: none; }
+
+.sar-tin {
+  position: relative; padding: 34px 14px 16px;
+  border-radius: 40px; border: 5px solid var(--bg-deep);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--cream) 85%, var(--peacock)) 0%, color-mix(in srgb, var(--cream) 60%, var(--peacock)) 100%);
+  box-shadow: inset 0 0 0 8px color-mix(in srgb, var(--cream) 50%, var(--surface-3)), var(--shadow-pop);
+}
+.sar-lid {
+  position: absolute; top: -14px; right: 22px; width: 64px; height: 30px;
+  border-radius: 999px 999px 8px 8px; border: 4px solid var(--bg-deep); background: var(--marigold);
+  transform: rotate(14deg);
+}
+.sar-fish-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.sar-fish {
+  --c: var(--peacock);
+  position: relative; display: flex; align-items: center; gap: 10px;
+  min-height: 44px; padding: 6px 34px 6px 8px; margin-right: 14px;
+  border-radius: 999px 40px 40px 999px; border: 3px solid var(--bg-deep);
+  background: var(--c); color: var(--chai); font-weight: 700;
+  animation: sar-slide 0.45s var(--ease-bounce) both;
+  animation-delay: calc(var(--i) * 60ms);
+}
+.sar-fish:nth-child(even) { transform: translateX(10px); }
+.sar-fish-1 { --c: var(--marigold); }
+.sar-fish-2 { --c: var(--parrot); }
+.sar-fish-3 { --c: var(--cream); }
+.sar-fish-me { outline: 3px dashed var(--gulal); outline-offset: 2px; }
+.sar-fish-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sar-fish-meta { font-size: 0.82rem; }
+.sar-tail {
+  position: absolute; right: -16px; top: 50%; width: 0; height: 0; transform: translateY(-50%);
+  border-top: 14px solid transparent; border-bottom: 14px solid transparent; border-right: 18px solid var(--c);
+}
+@keyframes sar-slide { from { opacity: 0; transform: translateX(-40px); } }
+
+.sar-list-title { font-size: 1.05rem; margin-bottom: 8px; }
+.sar-summary ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.sar-summary li { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: center; font-weight: 600; }
