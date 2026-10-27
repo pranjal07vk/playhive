@@ -1,0 +1,5 @@
+.room-bar { background: var(--bg-deep); border-bottom: 3px solid var(--marigold); }
+.room-bar-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; }
+.room-bar-text { display: flex; flex-direction: column; line-height: 1.15; }
+.room-bar-title { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; }
+.room-bar-code { font-size: 0.8rem; color: var(--marigold); letter-spacing: 0.1em; }

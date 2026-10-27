@@ -1,0 +1,9 @@
+.conn-banner {
+  position: sticky; top: 0; z-index: 60;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 10px 16px;
+  background: var(--peacock); color: var(--chai);
+  font-weight: 700; text-align: center;
+  border-bottom: 3px solid var(--bg-deep);
+}
+.conn-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--chai); animation: pulse-ring 1.2s infinite; }

@@ -1,0 +1,21 @@
+.content-head { position: relative; display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; max-width: 760px; }
+.content-lede { font-size: 1.12rem; }
+.content-star { position: absolute; right: -10px; top: -10px; animation: spin-slow 20s linear infinite; }
+@media (max-width: 640px) { .content-star { display: none; } }
+.games-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+
+.rules-list { display: grid; gap: 18px; }
+@media (min-width: 900px) { .rules-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.rule-card { --accent: var(--marigold); scroll-margin-top: 90px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; padding: 22px; border-radius: var(--radius-lg); background: var(--surface); border: 2px solid var(--line-strong); border-left: 8px solid var(--accent); }
+.rule-card .row { width: 100%; }
+.rule-gulal { --accent: var(--gulal); }
+.rule-peacock { --accent: var(--peacock); }
+.rule-parrot { --accent: var(--parrot); }
+.rule-name { font-size: 1.5rem; }
+.rule-card ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+
+.about-grid { display: grid; gap: 20px; }
+@media (min-width: 900px) { .about-grid { grid-template-columns: 1fr 1fr; } }
+.about-h { font-size: 1.6rem; }
+.about-stack { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.about-stack li { display: flex; flex-direction: column; padding: 10px 14px; border-radius: 14px; background: var(--bg-deep); }

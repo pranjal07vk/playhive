@@ -1,0 +1,6 @@
+.settings { display: grid; gap: 18px; }
+@media (min-width: 640px) { .settings { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.settings-value { float: right; color: var(--marigold); font-size: 1.05rem; }
+.settings-toggle { align-self: end; font-weight: 700; }
+.settings-range { width: 100%; height: 32px; accent-color: var(--gulal); cursor: pointer; }
+.settings-range:disabled { cursor: not-allowed; opacity: 0.6; }

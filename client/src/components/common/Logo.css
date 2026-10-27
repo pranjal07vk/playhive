@@ -1,0 +1,5 @@
+.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--cream); }
+.logo:hover { color: var(--cream); }
+.logo:hover svg { animation: wobble 0.5s ease; }
+.logo-word { font-family: var(--font-display); font-weight: 800; font-size: 1.6rem; letter-spacing: -0.02em; }
+.logo-hive { color: var(--marigold); }

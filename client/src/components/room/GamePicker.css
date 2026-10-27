@@ -1,0 +1,30 @@
+.picker { border: 0; padding: 0; margin: 0; min-width: 0; }
+.picker legend { margin-bottom: 12px; }
+.picker-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); }
+.picker-tile {
+  --accent: var(--marigold);
+  position: relative; cursor: pointer;
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 14px; min-height: 108px;
+  border-radius: var(--radius);
+  border: 2.5px solid var(--line-strong);
+  background: var(--bg-deep);
+  transition: transform 0.15s var(--ease-bounce), border-color 0.15s, background 0.15s;
+}
+.picker-tile:hover { transform: translateY(-2px); border-color: var(--accent); }
+.picker-tile:has(input:focus-visible) { box-shadow: var(--focus-ring); }
+.picker-gulal { --accent: var(--gulal-text); }
+.picker-peacock { --accent: var(--peacock); }
+.picker-parrot { --accent: var(--parrot-text); }
+.picker-on { border-color: var(--accent); background: var(--surface-2); box-shadow: 4px 4px 0 var(--accent); }
+.picker-glyph { font-size: 1.7rem; }
+.picker-name { font-family: var(--font-display); font-weight: 800; font-size: 1.08rem; line-height: 1.1; }
+.picker-meta { font-size: 0.76rem; color: var(--text-muted); }
+.picker-check {
+  position: absolute; top: 10px; right: 10px;
+  width: 26px; height: 26px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--accent); color: var(--chai); font-weight: 800;
+  border: 2px solid var(--bg-deep);
+  animation: pop-in 0.3s var(--ease-bounce);
+}

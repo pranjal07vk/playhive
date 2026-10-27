@@ -6,7 +6,7 @@ export const env = {
   nodeEnv: process.env.NODE_ENV || 'development',
   port: Number(process.env.PORT) || 4000,
   mongoUri: process.env.MONGODB_URI || '',
-  clientOrigins: list(process.env.CLIENT_ORIGINS || 'http://localhost:5173'),
+  clientOrigins: list(process.env.CLIENT_ORIGINS || 'http://localhost:5173,http://127.0.0.1:5173'),
   publicClientUrl: process.env.PUBLIC_CLIENT_URL || 'http://localhost:5173',
 };
 

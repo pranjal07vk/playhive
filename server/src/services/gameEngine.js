@@ -147,12 +147,15 @@ export function viewFor(room, playerId) {
   if (room.status !== 'playing' || !room.game) return null;
   const game = getGame(room.game.id);
   const inGame = room.game.roster.some((p) => p.id === playerId);
+  const view = game.view(room.game.state, playerId, context(room));
   return {
     id: room.game.id,
     phase: room.game.state.phase,
-    deadline: room.game.state.deadline ?? null,
+    // A game can hide its real deadline (e.g. when the music stops in
+    // Freeze Dance) by putting its own `deadline` in the view.
+    deadline: view && Object.hasOwn(view, 'deadline') ? view.deadline : (room.game.state.deadline ?? null),
     roster: room.game.roster,
     spectating: !inGame,
-    view: game.view(room.game.state, playerId, context(room)),
+    view,
   };
 }

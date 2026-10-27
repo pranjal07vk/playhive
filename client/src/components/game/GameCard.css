@@ -1,0 +1,31 @@
+.game-card {
+  --accent: var(--marigold);
+  --on-accent: var(--chai);
+  position: relative;
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 22px 20px 18px;
+  min-height: 220px;
+  border-radius: var(--radius-lg);
+  border: 3px solid var(--bg-deep);
+  background: var(--surface);
+  color: var(--cream);
+  text-decoration: none;
+  box-shadow: var(--shadow-pop);
+  overflow: hidden;
+  transition: transform 0.2s var(--ease-bounce), box-shadow 0.2s;
+}
+.game-card::before {
+  content: ''; position: absolute; right: -40px; top: -40px; width: 140px; height: 140px;
+  border-radius: 50%; background: var(--accent); opacity: 0.95;
+  border: 3px solid var(--bg-deep);
+}
+.game-card:hover, .game-card:focus-visible { transform: rotate(var(--tilt)) translateY(-4px); color: var(--cream); box-shadow: 9px 9px 0 var(--bg-deep); }
+.game-card-gulal { --accent: var(--gulal); }
+.game-card-peacock { --accent: var(--peacock); }
+.game-card-parrot { --accent: var(--parrot); }
+.game-card-glyph { position: absolute; right: 14px; top: 12px; font-size: 2.6rem; filter: drop-shadow(2px 2px 0 var(--bg-deep)); }
+.game-card-vibe { align-self: flex-start; font-family: var(--font-numeric); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold); }
+.game-card-name { font-size: 1.65rem; max-width: 75%; margin-top: 36px; }
+.game-card-tag { color: var(--text-muted); flex: 1; }
+.game-card-foot { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; font-weight: 700; color: var(--cream); border-top: 2px dashed var(--line-strong); padding-top: 12px; }
+.game-card-go { color: var(--marigold); }

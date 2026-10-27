@@ -1,0 +1,20 @@
+.lobby { padding-top: 24px; padding-bottom: 56px; }
+.lobby-head { margin-bottom: 24px; display: flex; flex-direction: column; gap: 6px; }
+.lobby-title { font-size: clamp(2.2rem, 7vw, 3.6rem); }
+.lobby-grid { display: grid; gap: 20px; }
+@media (min-width: 960px) {
+  .lobby-grid { grid-template-columns: 380px 1fr; align-items: start; }
+  .lobby-side { position: sticky; top: 24px; }
+}
+.lobby-h { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; }
+.lobby-game { --accent: var(--marigold); display: flex; flex-direction: column; gap: 10px; border-top: 8px solid var(--accent); }
+.lobby-game-gulal { --accent: var(--gulal); }
+.lobby-game-peacock { --accent: var(--peacock); }
+.lobby-game-parrot { --accent: var(--parrot); }
+.lobby-game-glyph { font-size: 2.6rem; }
+.lobby-rules { margin: 4px 0 6px; padding-left: 20px; display: grid; gap: 6px; color: var(--cream); }
+.lobby-rules li::marker { color: var(--marigold); font-weight: 700; }
+.lobby-empty { margin-top: 14px; text-align: center; }
+.lobby-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; background: var(--surface-2); }
+.lobby-actions .btn { flex: 1 1 200px; max-width: 320px; }
+.lobby-leave { align-self: flex-start; }

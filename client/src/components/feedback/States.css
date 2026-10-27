@@ -1,0 +1,3 @@
+.state-block { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; padding: 48px 24px; max-width: 520px; margin: 0 auto; }
+.state-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; }
+.state-spin { animation: spin-slow 3s linear infinite; }

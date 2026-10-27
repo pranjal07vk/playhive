@@ -1,0 +1,23 @@
+.form-page { max-width: 820px; }
+.form-head { position: relative; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.form-title { font-size: clamp(2.4rem, 8vw, 4rem); }
+.form-flower { position: absolute; right: 0; top: -6px; animation: float 5s ease-in-out infinite; }
+.form-card { background: var(--surface); }
+.form-subtitle { font-size: 1.4rem; }
+.form-settings { padding: 20px; border-radius: var(--radius); background: var(--bg-deep); border: 2px dashed var(--line-strong); }
+
+.join-preview {
+  --accent: var(--marigold);
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  border: 3px solid var(--bg-deep);
+  background: var(--surface-2);
+  box-shadow: 4px 4px 0 var(--accent);
+}
+.join-preview-gulal { --accent: var(--gulal); }
+.join-preview-peacock { --accent: var(--peacock); }
+.join-preview-parrot { --accent: var(--parrot); }
+.join-preview-glyph { font-size: 2.2rem; }
+.join-preview-title { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; }
+.join-rejoin { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-radius: var(--radius); background: rgba(0, 180, 216, 0.12); border: 2px solid var(--peacock); }

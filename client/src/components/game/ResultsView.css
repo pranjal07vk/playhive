@@ -1,0 +1,21 @@
+.results { padding-top: 32px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 24px; }
+.results-hero { position: relative; text-align: center; display: flex; flex-direction: column; gap: 10px; align-items: center; padding: 16px 40px 0; }
+.results-title { font-size: clamp(2.2rem, 8vw, 4.4rem); color: var(--marigold); text-shadow: 4px 4px 0 var(--gulal); }
+.results-flower { position: absolute; left: 0; top: 0; animation: spin-slow 12s linear infinite; }
+.results-sparkle { position: absolute; right: 8px; top: 40px; animation: float 4s ease-in-out infinite; }
+.podium { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; }
+.podium-spot { position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 20px 28px; background: var(--marigold); color: var(--chai); border: 3px solid var(--bg-deep); border-radius: var(--radius-lg); box-shadow: var(--shadow-pop); font-size: 1.15rem; }
+.podium-crown { position: absolute; top: -22px; font-size: 2rem; animation: wobble 2s ease-in-out infinite; }
+.results-grid { display: grid; gap: 20px; }
+@media (min-width: 900px) { .results-grid { grid-template-columns: 1.2fr 1fr; align-items: start; } }
+.results-h { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; margin-bottom: 12px; }
+.ranking { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.ranking li { display: flex; align-items: center; gap: 12px; padding: 8px 12px; border-radius: 14px; background: var(--bg-deep); }
+.ranking-me { outline: 2px solid var(--marigold); }
+.ranking-rank { width: 36px; font-weight: 700; color: var(--marigold); }
+.ranking-name { flex: 1; font-weight: 700; min-width: 0; }
+.ranking-score { font-weight: 700; font-size: 1.3rem; }
+.highlights { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+.highlights li::marker { content: '✦  '; color: var(--gulal-text); }
+.results-saved { font-size: 0.9rem; }
+.results-actions { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; background: var(--surface-2); }

@@ -1,0 +1,8 @@
+.footer { margin-top: 72px; background: var(--bg-deep); }
+.footer-inner { display: grid; gap: 28px; padding-top: 40px; padding-bottom: 24px; }
+.footer-brand { font-family: var(--font-display); font-size: 1.4rem; }
+.footer-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 24px; align-content: start; }
+.footer-links a { color: var(--cream); font-weight: 600; text-decoration: none; min-height: 32px; }
+.footer-links a:hover { color: var(--marigold); }
+.footer-fine { padding-bottom: 32px; font-size: 0.9rem; }
+@media (min-width: 768px) { .footer-inner { grid-template-columns: 1.4fr 1fr; } }

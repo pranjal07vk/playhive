@@ -1,0 +1,17 @@
+.ticket {
+  position: relative;
+  padding: 22px 22px 18px;
+  background: var(--marigold);
+  color: var(--chai);
+  border: 3px solid var(--bg-deep);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.ticket::after { content: ''; position: absolute; left: 18px; right: 18px; top: 104px; border-top: 3px dashed rgba(30, 25, 38, 0.35); }
+.ticket .eyebrow { color: var(--chai); }
+.ticket-code { font-size: clamp(2.6rem, 12vw, 3.6rem); font-weight: 700; letter-spacing: 0.22em; line-height: 1; margin-bottom: 14px; }
+.ticket-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.ticket-ghost { --btn-fg: var(--chai); border-color: var(--chai); }
+.ticket-ghost:hover { background: rgba(30, 25, 38, 0.1); color: var(--chai); }
+.ticket-url { font-size: 0.85rem; font-weight: 600; overflow-wrap: anywhere; opacity: 0.85; }

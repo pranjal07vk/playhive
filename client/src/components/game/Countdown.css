@@ -1,0 +1,7 @@
+.countdown { position: relative; width: 72px; height: 72px; flex: none; display: grid; place-items: center; }
+.countdown svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+.countdown-track { fill: var(--bg-deep); stroke: var(--surface-3); stroke-width: 4; }
+.countdown-fill { fill: none; stroke: var(--marigold); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 119.4; transition: stroke-dashoffset 0.3s linear, stroke 0.3s; }
+.countdown-num { position: relative; font-size: 1.6rem; font-weight: 700; animation: tick 0.3s ease-out; }
+.countdown-urgent .countdown-fill { stroke: var(--gulal-text); }
+.countdown-urgent .countdown-num { color: var(--gulal-text); }

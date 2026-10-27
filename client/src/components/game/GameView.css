@@ -1,0 +1,8 @@
+.game { padding-top: 24px; padding-bottom: 56px; }
+.game-grid { display: grid; gap: 24px; }
+.game-stage { min-width: 0; }
+@media (min-width: 1024px) {
+  .game-grid { grid-template-columns: minmax(0, 1fr) 300px; align-items: start; }
+  .game-side { position: sticky; top: 24px; }
+}
+.game-host { padding: 16px; display: flex; flex-direction: column; gap: 10px; }
