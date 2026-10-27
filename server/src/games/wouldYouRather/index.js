@@ -38,10 +38,13 @@ function advance(state, ctx) {
 }
 
 function summarize(state, ctx) {
-  const split = state.history.reduce((best, h) => {
-    const gap = Math.abs(h.tally[0] - h.tally[1]);
-    return !best || gap < best.gap ? { gap, h } : best;
-  }, null);
+  // Only questions where both sides got votes count as divisive.
+  const split = state.history
+    .filter((h) => h.tally[0] > 0 && h.tally[1] > 0)
+    .reduce((best, h) => {
+      const gap = Math.abs(h.tally[0] - h.tally[1]);
+      return !best || gap < best.gap ? { gap, h } : best;
+    }, null);
   return {
     headline: headlineFor(ctx, state.scores, 'is the ultimate hive mind'),
     ranking: ranking(state.scores),

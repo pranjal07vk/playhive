@@ -1,4 +1,7 @@
-export const API_URL = (import.meta.env.VITE_API_URL || 'http://localhost:4000').replace(/\/$/, '');
+// In production the API is served from the same origin as the app, so the
+// base URL is empty. In development it points at the local Express server.
+const fallback = import.meta.env.DEV ? 'http://localhost:4000' : '';
+export const API_URL = (import.meta.env.VITE_API_URL ?? fallback).replace(/\/$/, '');
 
 export class ApiError extends Error {
   constructor(code, message, status) {

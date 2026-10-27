@@ -2,7 +2,7 @@ import { io } from 'socket.io-client';
 import { API_URL } from './apiClient.js';
 
 export function connectToRoom(session) {
-  return io(API_URL, {
+  return io(API_URL || undefined, {
     auth: { roomCode: session.roomCode, playerId: session.playerId, token: session.token },
     transports: ['websocket', 'polling'],
     reconnectionDelay: 800,

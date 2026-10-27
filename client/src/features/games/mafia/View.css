@@ -1,0 +1,175 @@
+/* Mafia: a stage that switches between a starry night and a marigold sunrise. */
+.maf {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 3px solid var(--bg-deep);
+  box-shadow: var(--shadow-pop);
+  padding: 22px 16px 26px;
+  transition: background 0.8s var(--ease-out), color 0.8s;
+}
+.maf-night { background: linear-gradient(180deg, var(--bg-deep) 0%, var(--chai) 55%, var(--surface) 100%); color: var(--cream); }
+.maf-day { background: linear-gradient(180deg, var(--marigold) 0%, var(--marigold-soft) 45%, var(--paper) 100%); color: var(--chai); }
+.maf-day .muted, .maf-day .maf-small { color: var(--surface); }
+.maf-day .eyebrow { color: var(--chai); }
+.maf-body { position: relative; z-index: 1; }
+
+/* Sky decorations */
+.maf-sky { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.maf-moon {
+  position: absolute; top: 18px; right: 22px; width: 64px; height: 64px; border-radius: 50%;
+  background: var(--cream); box-shadow: 0 0 40px 6px var(--marigold-soft);
+  -webkit-mask: radial-gradient(circle at 30% 35%, transparent 26px, #000 27px);
+  mask: radial-gradient(circle at 30% 35%, transparent 26px, #000 27px);
+  opacity: 0.9;
+}
+.maf-stars {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 18%, var(--cream) 50%, transparent 51%),
+    radial-gradient(2px 2px at 30% 8%, var(--marigold-soft) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 48% 24%, var(--cream) 50%, transparent 51%),
+    radial-gradient(1px 1px at 62% 12%, var(--cream) 50%, transparent 51%),
+    radial-gradient(2px 2px at 76% 30%, var(--peacock) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 88% 52%, var(--cream) 50%, transparent 51%),
+    radial-gradient(1px 1px at 8% 60%, var(--cream) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 40% 70%, var(--marigold-soft) 50%, transparent 51%),
+    radial-gradient(1px 1px at 70% 84%, var(--cream) 50%, transparent 51%);
+  opacity: 0.7;
+  animation: maf-twinkle 4s ease-in-out infinite alternate;
+}
+@keyframes maf-twinkle { to { opacity: 0.35; } }
+.maf-sun {
+  position: absolute; top: -70px; left: 50%; width: 220px; height: 220px; transform: translateX(-50%);
+  border-radius: 50%; background: var(--paper); opacity: 0.55;
+  box-shadow: 0 0 0 26px var(--marigold-soft), 0 0 0 52px var(--marigold);
+  animation: rise 1s var(--ease-out) both;
+}
+
+.maf-small { font-size: 0.9rem; color: var(--text-muted); }
+.maf-me-badge { width: fit-content; }
+.maf-badge-gulal { background: var(--gulal); color: #fff; }
+.maf-badge-parrot { background: var(--parrot); color: var(--chai); }
+.maf-badge-peacock { background: var(--peacock); color: var(--chai); }
+.maf-badge-marigold { background: var(--marigold); color: var(--chai); }
+.maf-badge-dark { background: var(--surface-2); color: var(--cream); }
+
+.maf-dead {
+  margin: 0; padding: 12px 16px; border-radius: var(--radius);
+  background: var(--surface-2); color: var(--cream);
+  border: 2px dashed var(--line-strong); font-weight: 700; text-align: center;
+}
+
+.maf-stage.stage-dark { background: rgba(21, 17, 27, 0.82); }
+
+/* Flip card */
+.maf-flip { perspective: 1200px; width: min(100%, 320px); margin: 0 auto; }
+.maf-flip-inner {
+  position: relative; display: block; width: 100%; aspect-ratio: 3 / 4; min-height: 320px;
+  border: 0; padding: 0; background: none; cursor: pointer; color: inherit;
+  transform-style: preserve-3d; transition: transform 0.7s var(--ease-bounce);
+  border-radius: var(--radius-lg);
+}
+.maf-flip-on .maf-flip-inner { transform: rotateY(180deg); }
+.maf-flip-inner:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.maf-face {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  padding: 22px; border-radius: var(--radius-lg); border: 3px solid var(--bg-deep); box-shadow: var(--shadow-pop);
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
+.maf-front {
+  background: repeating-linear-gradient(45deg, var(--surface-2) 0 14px, var(--surface-3) 14px 28px);
+  color: var(--cream); font-family: var(--font-display); font-size: 1.3rem;
+}
+.maf-front-glyph { font-size: 4rem; line-height: 1; color: var(--marigold); }
+.maf-back { transform: rotateY(180deg); }
+.maf-tone-gulal { background: var(--gulal); color: #fff; }
+.maf-tone-parrot { background: var(--parrot); color: var(--chai); }
+.maf-tone-peacock { background: var(--peacock); color: var(--chai); }
+.maf-tone-marigold { background: var(--marigold); color: var(--chai); }
+.maf-tone-dark { background: var(--surface-2); color: var(--cream); }
+.maf-back .maf-small { color: inherit; opacity: 0.9; }
+.maf-role-icon { font-size: 3.4rem; line-height: 1; }
+.maf-role-name { font-family: var(--font-display); font-size: 2.4rem; line-height: 1; }
+.maf-role-power { font-weight: 600; line-height: 1.35; }
+.maf-role-team { margin-top: 4px; padding: 6px 12px; border-radius: var(--radius-pill); background: var(--bg-deep); color: var(--cream); font-weight: 700; font-size: 0.92rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .maf-flip-inner, .maf-flip-on .maf-flip-inner { transform: none; transition: none; }
+  .maf-back { transform: none; opacity: 0; }
+  .maf-front { opacity: 1; }
+  .maf-flip-on .maf-back { opacity: 1; }
+  .maf-flip-on .maf-front { opacity: 0; }
+  .maf-face { transition: opacity 0.3s; }
+  .maf-stars { animation: none; }
+}
+
+/* Target picker */
+.maf-move-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin: 0; }
+.maf-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (min-width: 768px) { .maf-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.maf-pick {
+  position: relative; min-height: 64px; padding: 10px 12px;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  border-radius: var(--radius); border: 3px solid var(--bg-deep);
+  background: var(--surface-2); color: var(--cream);
+  box-shadow: var(--shadow-sticker); font-weight: 700; text-align: left; cursor: pointer;
+  transition: transform 0.15s var(--ease-bounce), box-shadow 0.15s;
+}
+.maf-pick:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: var(--shadow-pop); }
+.maf-pick:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.maf-pick:disabled { cursor: default; opacity: 0.6; }
+.maf-pick-on { background: var(--marigold); color: var(--chai); opacity: 1 !important; transform: rotate(-1.5deg); }
+.maf-pick-name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.maf-pick-badge { flex-basis: 100%; font-size: 0.8rem; font-weight: 700; padding: 2px 8px; border-radius: var(--radius-pill); background: var(--bg-deep); color: var(--cream); width: fit-content; }
+.maf-pick-tick { position: absolute; top: 6px; right: 10px; font-size: 1.1rem; }
+.maf-day .maf-pick { background: var(--paper); color: var(--chai); }
+.maf-day .maf-pick-on { background: var(--gulal); color: #fff; }
+
+.maf-skip-on { background: var(--surface-3); color: var(--cream); --btn-bg: var(--surface-3); --btn-fg: var(--cream); }
+
+/* Announcement */
+.maf-news {
+  display: flex; gap: 14px; align-items: center; text-align: left;
+  padding: 16px 18px; border-radius: var(--radius-lg);
+  background: var(--paper); color: var(--chai); border: 3px solid var(--bg-deep); box-shadow: var(--shadow-pop);
+  transform: rotate(-1deg); animation: pop-in 0.45s var(--ease-bounce) both;
+}
+.maf-news-icon { font-size: 2.6rem; line-height: 1; }
+.maf-news-title { font-family: var(--font-display); font-size: 1.45rem; line-height: 1.1; }
+.maf-news .badge { width: fit-content; }
+
+.maf-breakdown { background: var(--bg-deep); color: var(--cream); border-radius: var(--radius); padding: 10px 14px; border: 2px solid var(--line); }
+.maf-breakdown summary { cursor: pointer; font-weight: 700; min-height: 32px; display: flex; align-items: center; }
+.maf-breakdown ul { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 4px; }
+
+.maf-casebook { background: var(--bg-deep); color: var(--cream); border-radius: var(--radius); padding: 14px 16px; border: 2px solid var(--peacock); }
+.maf-casebook ul { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 4px; }
+
+/* Town roster */
+.maf-town { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+@media (min-width: 768px) { .maf-town { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.maf-townie { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 6px 10px; border-radius: var(--radius); background: var(--bg-deep); color: var(--cream); border: 2px solid var(--line); min-width: 0; }
+.maf-townie .maf-small { flex-basis: 100%; }
+.maf-townie-name { font-weight: 700; min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.maf-townie-out, .maf-townie-left { opacity: 0.6; border-style: dashed; }
+.maf-townie-out .maf-townie-name { text-decoration: line-through; }
+
+@media (min-width: 768px) { .maf { padding: 28px 28px 32px; } }
+.maf-day .hud-title { color: var(--chai); }
+
+/* Results reveal */
+.maf-reveal-title { font-family: var(--font-display); font-size: clamp(1.6rem, 5vw, 2.2rem); margin: 0; }
+.maf-reveal-side { padding: 12px; border-radius: var(--radius); border: 2px dashed var(--line-strong); }
+.maf-reveal-won { border: 3px solid var(--marigold); }
+.maf-reveal-grid { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (min-width: 768px) { .maf-reveal-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.maf-reveal-card {
+  display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
+  padding: 12px 8px; border-radius: var(--radius); border: 3px solid var(--bg-deep); box-shadow: var(--shadow-sticker);
+  min-width: 0; overflow-wrap: anywhere;
+}
+.maf-reveal-card:nth-child(odd) { transform: rotate(-1.5deg); }
+.maf-reveal-card:nth-child(even) { transform: rotate(1.5deg); }
+.maf-reveal-status { font-size: 0.85rem; font-weight: 700; }

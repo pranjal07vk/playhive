@@ -1,0 +1,64 @@
+/* Two Truths and a Lie: a detective's evidence board. */
+.ttl-form { display: flex; flex-direction: column; gap: 18px; text-align: left; transform: rotate(-0.6deg); }
+.ttl-form-lede { font-weight: 600; }
+.ttl-field { display: flex; flex-direction: column; gap: 6px; padding: 12px; border-radius: var(--radius); border: 2.5px dashed color-mix(in srgb, var(--chai) 25%, transparent); transition: border-color 0.2s, background 0.2s; }
+.ttl-field-lie { border-color: var(--gulal); border-style: solid; background: color-mix(in srgb, var(--gulal) 6%, transparent); }
+.ttl-textarea { min-height: 72px; background: var(--chai); }
+.ttl-field-meta { display: flex; justify-content: space-between; gap: 8px; font-size: 0.85rem; }
+.ttl-count { color: color-mix(in srgb, var(--chai) 75%, var(--paper)); }
+.ttl-lie-radio { display: inline-flex; align-items: center; gap: 10px; min-height: var(--tap); font-weight: 700; cursor: pointer; width: fit-content; }
+.ttl-lie-radio input { width: 22px; height: 22px; accent-color: var(--gulal); }
+
+.ttl-waiting { display: flex; align-items: center; gap: 16px; background: var(--surface-2); }
+.ttl-pen { font-size: 2.6rem; animation: wobble 1.4s ease-in-out infinite; }
+.ttl-waiting-text { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; }
+
+.ttl-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 768px) { .ttl-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.ttl-cards > li { display: flex; }
+
+.ttl-card {
+  --c: var(--marigold);
+  position: relative; width: 100%; min-height: 120px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
+  padding: 22px 18px 18px;
+  border-radius: var(--radius-lg); border: 3px solid var(--bg-deep);
+  background: var(--paper); color: var(--chai);
+  box-shadow: 6px 6px 0 var(--c);
+  text-align: left; font: inherit;
+  animation: pop-in 0.4s var(--ease-bounce) both;
+}
+.ttl-card-0 { transform: rotate(-1.2deg); }
+.ttl-card-1 { --c: var(--peacock); transform: rotate(0.8deg); animation-delay: 0.08s; }
+.ttl-card-2 { --c: var(--parrot); transform: rotate(-0.4deg); animation-delay: 0.16s; }
+button.ttl-card { cursor: pointer; transition: transform 0.15s var(--ease-bounce), box-shadow 0.15s; }
+button.ttl-card:hover { transform: translate(-2px, -2px) rotate(0deg); box-shadow: 8px 8px 0 var(--c); }
+button.ttl-card:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--c); }
+.ttl-card-picked { outline: 4px solid var(--c); outline-offset: 3px; }
+.ttl-card-num { position: absolute; top: -14px; left: 14px; width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; background: var(--chai); color: var(--marigold); border: 3px solid var(--bg-deep); font-weight: 700; }
+.ttl-card-text { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; line-height: 1.2; overflow-wrap: anywhere; }
+.ttl-mine { white-space: normal; }
+.ttl-voters { font-size: 0.92rem; font-weight: 600; color: color-mix(in srgb, var(--chai) 75%, var(--paper)); }
+.ttl-true { margin-top: auto; }
+
+.ttl-card-lie { background: color-mix(in srgb, var(--gulal) 12%, var(--paper)); box-shadow: 6px 6px 0 var(--gulal); }
+.ttl-stamp {
+  position: absolute; right: 10px; top: 8px;
+  padding: 2px 14px; border: 5px solid var(--gulal); border-radius: 12px;
+  color: var(--gulal); font-family: var(--font-display); font-weight: 800; font-size: 2.6rem; line-height: 1.1; letter-spacing: 0.08em;
+  transform: rotate(-14deg); background: color-mix(in srgb, var(--paper) 85%, transparent);
+  animation: ttl-stamp 0.45s var(--ease-bounce) both;
+}
+@keyframes ttl-stamp { from { transform: rotate(-30deg) scale(2.4); opacity: 0; } to { transform: rotate(-14deg) scale(1); opacity: 1; } }
+
+.ttl-points { padding: var(--space-4); }
+.ttl-points-title { font-size: 1.1rem; margin-bottom: 8px; }
+.ttl-points ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.ttl-points li { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; font-weight: 600; }
+.ttl-skipped { font-size: 0.9rem; }
+
+/* Results screen */
+.ttl-reveal { display: grid; gap: 14px; }
+.ttl-reveal-item { background: var(--surface); border: 2px solid var(--line-strong); border-radius: var(--radius); padding: 14px 16px; text-align: left; }
+.ttl-reveal-item ol { margin: 8px 0 0; padding-left: 22px; display: grid; gap: 4px; }
+.ttl-reveal-lie { color: var(--gulal-text); font-weight: 700; }

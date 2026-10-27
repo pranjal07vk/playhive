@@ -1,0 +1,40 @@
+.dc { display: flex; flex-direction: column; gap: 12px; width: 100%; min-width: 0; }
+.dc-sheet {
+  position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden;
+  background: var(--paper);
+  border: 3px solid var(--bg-deep); border-radius: var(--radius);
+  box-shadow: 6px 6px 0 var(--bg-deep);
+  /* Sketchbook spiral holes along the top edge */
+  background-image: radial-gradient(circle at 12px 10px, var(--bg-deep) 4px, transparent 5px);
+  background-size: 28px 20px; background-repeat: repeat-x;
+}
+.dc-canvas { display: block; touch-action: none; user-select: none; -webkit-user-select: none; }
+.dc-live .dc-canvas { cursor: crosshair; }
+.dc-compact .dc-sheet { border-width: 2px; border-radius: var(--radius-sm); box-shadow: 3px 3px 0 var(--bg-deep); background-image: none; }
+
+.dc-tools { display: flex; flex-direction: column; gap: 10px; }
+.dc-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.dc-swatch, .dc-tool {
+  min-width: 44px; min-height: 44px; border-radius: var(--radius-sm);
+  border: 3px solid var(--bg-deep); cursor: pointer;
+  box-shadow: 3px 3px 0 var(--bg-deep);
+  transition: transform 0.12s var(--ease-out);
+}
+.dc-swatch { width: 44px; background: var(--swatch); }
+.dc-swatch[aria-pressed='true'] { outline: 3px solid var(--marigold); outline-offset: 2px; transform: rotate(-6deg) scale(1.06); }
+.dc-swatch { display: inline-grid; place-items: center; }
+.dc-swatch[aria-pressed='true']::after {
+  content: '✓'; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--chai); color: var(--cream); font-weight: 800; font-size: 0.8rem;
+}
+.dc-tool {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  background: var(--cream); color: var(--chai); font-weight: 700; padding: 0 10px;
+}
+.dc-tool[aria-pressed='true'] { background: var(--marigold); transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--bg-deep); }
+.dc-tool:disabled { opacity: 0.45; cursor: not-allowed; }
+.dc-dot { width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--chai); }
+.dc-full { color: var(--marigold); font-weight: 700; }
+@media (min-width: 768px) {
+  .dc-tools { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+}

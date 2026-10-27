@@ -1,0 +1,31 @@
+.tod-pick { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 8px 4px; }
+.tod-card {
+  min-height: 200px; padding: 20px 12px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  border: 3px solid var(--bg-deep); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop);
+  font-family: var(--font-display); cursor: pointer;
+  transition: transform 0.2s var(--ease-bounce), rotate 0.2s var(--ease-bounce), box-shadow 0.2s;
+  animation: pop-in 0.45s var(--ease-bounce) backwards;
+}
+.tod-truth { background: var(--peacock); color: var(--chai); rotate: -4deg; }
+.tod-dare { background: var(--gulal); color: #fff; rotate: 4deg; animation-delay: 0.08s; }
+button.tod-card:hover { rotate: 0deg; transform: translateY(-6px) scale(1.03); box-shadow: 10px 10px 0 var(--bg-deep); }
+button.tod-card:active { rotate: 0deg; transform: translate(3px, 3px); box-shadow: 0 0 0 var(--bg-deep); }
+.tod-card-idle { cursor: default; opacity: 0.6; }
+.tod-card-emoji { font-size: 2.6rem; line-height: 1; }
+.tod-card-word { font-size: clamp(2rem, 9vw, 3.2rem); font-weight: 800; line-height: 1; }
+.tod-card-hint { font-weight: 600; font-size: 0.95rem; }
+
+.tod-prompt { rotate: -1.2deg; }
+.tod-prompt .stage-text { font-size: clamp(1.35rem, 4.5vw, 2rem); }
+.tod-for { margin-top: 12px; font-weight: 700; color: var(--chai); opacity: 0.75; }
+
+.tod-actions { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 480px) { .tod-actions { grid-template-columns: 1fr 1fr; } }
+.tod-judge { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--marigold); }
+
+@media (min-width: 768px) {
+  .tod-pick { gap: 28px; padding: 12px 40px; }
+  .tod-card { min-height: 260px; }
+}
