@@ -4,7 +4,7 @@ services:
     name: playhive
     runtime: node
     plan: free
-    buildCommand: npm ci --prefix server --omit=dev && npm ci --prefix client && npm run build --prefix client
+    buildCommand: npm ci --prefix server --omit=dev && npm ci --prefix client --include=dev && npm run build --prefix client
     startCommand: npm start --prefix server
     healthCheckPath: /api/health
     envVars:
