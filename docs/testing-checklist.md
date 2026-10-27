@@ -40,6 +40,9 @@ Legend: ✅ verified · ⬜ to verify on the deployed site
 
 | Check | Status |
 |---|---|
-| `/api/health` returns `status: up`, `database: connected` | ⬜ |
-| Fresh browser: create → join from a phone → play → results | ⬜ |
-| Match saved (results screen shows "Saved to match history") | ⬜ |
+| `/api/health` returns `status: up`, `database: connected` | ✅ 27 Oct 2026 |
+| Fresh headless browsers on the live URL: create → join at 390px → 8-round game → results | ✅ |
+| Match saved (results screen shows "Saved to match history"; `/api/history` lists it) | ✅ |
+| Pictionary strokes sync between devices over production WebSockets | ✅ |
+| 6-player Mafia started and played to results on the live URL | ✅ |
+| Real phones on mobile data (not just emulated widths) | ⬜ do this while recording the demo |

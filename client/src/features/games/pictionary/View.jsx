@@ -81,7 +81,7 @@ export default function PictionaryView({ game }) {
             </div>
             <aside className="pic-side stack" style={{ '--gap': '14px' }}>
               <div>
-                <p className="eyebrow">Guessed it</p>
+                <p className="eyebrow">Guessers · {v.guessedIds.length} of {guesserIds.length} got it</p>
                 <PlayerChips ids={guesserIds} marked={v.guessedIds} label="Who has guessed the word" />
               </div>
               <Feed feed={v.feed} nameOf={nameOf} meId={meId} />

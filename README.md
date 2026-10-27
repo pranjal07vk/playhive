@@ -4,7 +4,7 @@
 
 PlayHive is a real-time multiplayer party-games platform for the browser. One person creates a room, everyone else joins with a 5-character code or an invite link from their own phone or laptop, and the whole group plays together, with turns, votes, timers, secret roles and drawings kept in sync live.
 
-- **Live app:** _added after deployment_
+- **Live app:** https://playhive-t8t4.onrender.com
 - **Source:** https://github.com/pranjal07vk/playhive
 
 ---
@@ -146,7 +146,7 @@ Why not Vercel/Netlify alone: serverless functions can't hold the long-lived Soc
 
 ## 14. Public URL
 
-_Added after deployment._
+**https://playhive-t8t4.onrender.com** (Render web service + MongoDB Atlas). Health check: https://playhive-t8t4.onrender.com/api/health
 
 ## 15. Known limitations
 
