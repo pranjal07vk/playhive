@@ -6,6 +6,7 @@ PlayHive is a real-time multiplayer party-games platform for the browser. One pe
 
 - **Live app:** https://playhive-t8t4.onrender.com
 - **Source:** https://github.com/pranjal07vk/playhive
+- **Demo Video:** https://drive.google.com/file/d/1RGHRTbZeCRNJYXDf3SNix3o97uOu-5dB/view?usp=sharing
 
 ---
 
